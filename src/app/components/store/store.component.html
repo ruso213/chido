@@ -1,0 +1,38 @@
+<header>
+    <app-header></app-header>
+</header>
+<div class="principal">
+    <app-bonito></app-bonito>
+    <div class="idk">
+        <h1>on trend</h1>
+
+    </div>
+    <div class="targets">
+        
+        <app-targets 
+        [root]="product.id"
+        (ToggleCart)="togglecart($event)" 
+        (addProducts)="addProduct($event)" 
+        (viewDetailsItem)="viewDetails($event)"
+        [product]="product" *ngFor="let product of productos; "
+        ></app-targets>
+        
+    </div>
+    <div class="isla" [class.active]="tglcar">
+        <span >{{title}} añadido al carro </span>
+    </div>
+    
+    <div class="dontXst" [class.active2]="trueDetails"  (click)="toggleDetails()"></div>
+</div>
+
+
+<div class="targetDetails" [class.active]="trueDetails">
+    <div class="divButton">
+
+        <button class="toggleDetails" (click)="toggleDetails()"><img src="../../../assets/x-svgrepo-com.svg" height="20px" alt=""></button>
+    </div>    
+       
+
+        <app-view-details [trueDetails]="trueDetails" [productDetailsadd]="productSearch"></app-view-details>
+            
+    </div>

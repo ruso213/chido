@@ -1,0 +1,50 @@
+$back-color :#f3f3f3;
+$butt-colorHov :#d6d4d4;
+$butt-colorACT :#af0052;
+
+.headerPrin{
+    display: grid;
+    background-color: $back-color;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 42px;
+
+    h4{
+        margin: 0;
+    }
+    .leftPart{
+       display: flex; 
+       align-items: center;
+       gap: 10px;
+    }
+    .RusoStore{
+        display: flex;
+        .Store{
+            color: rgba(0, 0, 0, 0.425);
+        }
+    }
+    .rightPart{
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       gap: 10px;
+       button{
+        width: 35px;
+        height: 35px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        transition-duration: .5s;
+       }
+       button:hover{
+        background-color: $butt-colorHov;
+
+       }
+       button:active{
+        background-color: $butt-colorACT;
+
+       }
+    }
+}

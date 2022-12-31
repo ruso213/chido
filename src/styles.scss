@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100;1,200&family=Quicksand:wght@300&display=swap');
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;}
+

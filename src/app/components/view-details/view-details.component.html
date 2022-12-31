@@ -1,0 +1,19 @@
+<div class="details">
+    <div class="imageDiv">
+        <swiper [slidesPerView]="1" [autoHeight]="true">
+            <ng-template swiperSlide *ngFor="let image of productDetailsadd?.images">
+              <img [src]="image" class="image" [alt]="productDetailsadd.title">
+            </ng-template>
+          </swiper>
+    </div>
+    <div class="content">
+        <p> ${{productDetailsadd.price}} </p>
+        <h2> {{productDetailsadd.title}} </h2>
+        <p> {{productDetailsadd.description}} </p>
+        <div class="buttons ">
+            <button  class="addCar">
+                Add to cart 
+            </button>
+        </div>
+    </div>
+</div>
