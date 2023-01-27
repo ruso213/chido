@@ -3,8 +3,30 @@
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@600&display=swap');
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;}
+    font-family: 'Quicksand', sans-serif;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    width: 3px;
+    background-color: #a8a8a8;
+    border-radius: 4px;
+    border:#a8a8a8 ;
+}
+body::-webkit-scrollbar-thumb:hover{
+    width: 3px;
+    background-color: #7e7e7e;
+    border-radius: 4px;
 
+}
+body::-webkit-scrollbar-thumb:active{
+    width: 3px;
+    background-color: #464646;
+    border-radius: 4px;
+
+}

@@ -1,4 +1,4 @@
-<div class="headerPrin">
+<div class="headerPrin" [class.activeDark]='darkmode'>
     <div class="leftPart">
         <img src="../../../assets/store-home-svgrepo-com.svg"  height="30px" alt="">
         <div class="RusoStore">
@@ -8,10 +8,12 @@
         </div>
     </div>
     <div class="rightPart">
+       <p>{{userDetails.email}}</p>
+        <app-nice-button (click)="changeDarkModeTrueFalse()"></app-nice-button>
         <button routerLink="">
             <img src="../../../assets/home.svg" height="20px" alt="">
         </button>
-        <button routerLink="hola">
+        <button routerLink="user">
             <img src="../../../assets/person.svg" height="20px" alt="">
         </button>
         <button>

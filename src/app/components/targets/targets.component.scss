@@ -7,7 +7,9 @@
         .car_add{
             border: none;
             background: none;
-            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
             transition-duration: .3s;
         }
         .car_add:hover{
@@ -29,6 +31,7 @@
         box-shadow: 3px 3px 6px 5px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         height: 450px;
+        width: 95%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -67,6 +70,31 @@
                 margin: 10px;
             }
         }
+        &.darkmode{
+            
+            box-shadow: 3px 3px 6px 5px rgba(0, 0, 0, 0.301);
+            
+                .target{
+                    
+                .text{
+                    .price{
+                        color: white;
+                    }
+                    h2{
+                        color: white;
+                    }
+                    p{
+                        color: white;
+                    }
+                }
+                }
+            
+        }
+        &.darkmode:hover{
+            box-shadow: 3px 3px 6px 5px rgba(0, 0, 0, 0.514);
+
+        }
+        
     }
     .target_prin:hover{
         box-shadow: 3px 3px 6px 5px rgba(0, 0, 0, 0.233);

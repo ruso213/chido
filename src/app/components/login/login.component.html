@@ -1,1 +1,27 @@
-<app-header></app-header>
+<div  class="backgroundLogin">
+    <header >
+        <div class="headerLogin">
+            <app-header ></app-header>
+
+        </div>
+    </header>
+    
+    <div class="registerContainer">
+        <div class="caja"  [class.leftBox]="boxPosition" [class.rightBox]="!boxPosition">
+            <div *ngIf="boxPosition" class='textCool'>
+                <h1 class="saludo">WelCUM </h1>
+                <p>Welcome to our shopping app! We're excited that you've decided to join us. As a new user, we offer you a personalized experience and easy access to our products and services - we look forward to seeing you soon!</p>
+                <button  (click)="changetrueFalse()" class="buttonGD">tap to register</button>
+                <button class="buttonGD" (click)="getall()">getall()</button>
+            </div>
+            <div *ngIf="!boxPosition" class='textCool'>
+                <h1 class="saludo">Welcome again friend </h1>
+                <p>Hello again! Welcome back to our shopping app. We hope you had a good experience last time and we look forward to helping you find what you need.Thanks for choosing us!</p>
+                <button (click)="changetrueFalse()" class="buttonGD">tap to login</button>
+                <button class="buttonGD" (click)="getall()">getall()</button>
+            </div>
+        </div>
+        <app-register></app-register>
+        <app-target-login></app-target-login>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="details">
+<div class="details" [class.darkmode]="darkModeChange">
     <div class="imageDiv">
         <swiper [slidesPerView]="1" [autoHeight]="true">
             <ng-template swiperSlide *ngFor="let image of productDetailsadd?.images">
@@ -11,8 +11,11 @@
         <h2> {{productDetailsadd.title}} </h2>
         <p> {{productDetailsadd.description}} </p>
         <div class="buttons ">
-            <button  class="addCar">
+            <button (click)="addProductTocart()"  class="addCar">
                 Add to cart 
+            </button>
+            <button (click)="editProduct()"  class="addCar">
+                Edit
             </button>
         </div>
     </div>

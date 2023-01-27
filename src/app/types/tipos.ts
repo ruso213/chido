@@ -6,3 +6,9 @@ export interface Productos{
     images:string[]
     category:string
 }
+
+export interface ProductDTO extends Omit<Productos, 'id' | 'category'>{
+    categoryId: number
+}
+export interface EditProductDTO extends Partial<ProductDTO> {
+}

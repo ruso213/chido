@@ -8,13 +8,15 @@ import { ApiGetService } from './api-get.service';
 })
 export class ProductsService {
     private shoppingCar :Productos[] =[]
-    private mycart = new BehaviorSubject<Productos[]>([])
+    private mycart = new BehaviorSubject<Productos[]>([]) 
     mycart$ = this.mycart.asObservable()
 
     addTotal(prod : Productos){
       this.shoppingCar.push(prod)
       this.mycart.next(this.shoppingCar)
-      console.log(this.shoppingCar);
+      console.log(`rewdrer`);
+      console.log(this.shoppingCar); 
+      console.log(`rewdrer`);
       
     }
     getTotal(){

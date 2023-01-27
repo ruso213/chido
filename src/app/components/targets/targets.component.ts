@@ -1,4 +1,5 @@
 import { Component , Input, EventEmitter, Output,OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ProductsService } from 'src/app/service/products.service';
 import { Productos } from 'src/app/types/tipos';
 import { ApiGetService } from '../../service/api-get.service';
@@ -8,10 +9,11 @@ import { ApiGetService } from '../../service/api-get.service';
   templateUrl: './targets.component.html',
   styleUrls: ['./targets.component.scss']
 })
-export class TargetsComponent {
+export class TargetsComponent implements OnInit{
     constructor(
       private prod : ProductsService,
-      private api : ApiGetService
+      private api : ApiGetService,
+      private darkmode: DarkModeService
     ){}
     @Input() details:string = ``
     @Output() addProducts = new EventEmitter<Productos>()
@@ -45,6 +47,10 @@ export class TargetsComponent {
       console.log(this.root);
       
     } */
+    darkmodechnfde=false
+    ngOnInit(): void {
+      this.darkmode.darkMode$.subscribe(item => this.darkmodechnfde = item)
+    }
     viewDetails(pro: string){      
       this.viewDetailsItem.emit(pro)
     }

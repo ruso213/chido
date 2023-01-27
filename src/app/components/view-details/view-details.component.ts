@@ -1,4 +1,6 @@
 import { Component , Input, EventEmitter, Output,OnInit } from '@angular/core';
+import { ApiGetService } from 'src/app/service/api-get.service';
+import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ProductsService } from 'src/app/service/products.service';
 import { Productos } from 'src/app/types/tipos';
 
@@ -9,9 +11,10 @@ import { Productos } from 'src/app/types/tipos';
 })
 export class ViewDetailsComponent {
   constructor(
-    private addProducts : ProductsService
+    private Api_http : ApiGetService,
+    private darkMode: DarkModeService
   ){}
-  @Output() ToggleCart = new EventEmitter()
+  @Output() addProducts = new EventEmitter<Productos>()
   @Input() productDetailsadd : Productos ={
     id:``,
     title: ``,
@@ -21,16 +24,22 @@ export class ViewDetailsComponent {
     description:``
   }
   @Input()trueDetails = false
+  darkModeChange =false
   ngOnInit(){
-    console.log(`this.productDetails`);
-    console.log(this.productDetailsadd);
-    console.log(`this.productDetails`);
+    this.darkMode.darkMode$.subscribe(item => this.darkModeChange = item)
     
   }
-  toggleBTN(){
+  
+  addProductTocart(){
+    this.addProducts.emit(this.productDetailsadd)
     
   }
-  addProduct(){
-    
+  editProduct(){
+    const id = this.productDetailsadd.id
+    const changes = {
+      title : `my product cool`
+    }
+    this.Api_http.editProduct(id , changes).subscribe(item => console.log(item
+    ))
   }
 }

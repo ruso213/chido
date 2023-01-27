@@ -1,13 +1,36 @@
 $back-color :#f3f3f3;
 $butt-colorHov :#d6d4d4;
 $butt-colorACT :#af0052;
-
+$back-colosrDark: rgb(57 57 59);
 .headerPrin{
     display: grid;
-    background-color: $back-color;
+    animation-name: header;
+      animation-duration: 0.3s;
+      
+      
+      @keyframes header {
+          0%{
+              
+            background: $back-colosrDark;
+          }
+          
+          100%{
+            background: rgb(252, 252, 252);
+            color: white;
+
+
+          }
+          
+      }  
+      background: rgb(252, 252, 252);
+
+      color: white;
+    
     grid-template-columns: repeat(2, 1fr);
     padding: 42px;
-
+    .datkmode{
+        cursor: pointer;
+    }
     h4{
         margin: 0;
     }
@@ -46,5 +69,27 @@ $butt-colorACT :#af0052;
         background-color: $butt-colorACT;
 
        }
+    }
+    
+    &.activeDark{
+            animation-name: notfound;
+            animation-duration: 0.3s;
+            cursor:default;
+            color: white;
+            @keyframes notfound {
+                0%{
+                    background: rgb(252, 252, 252);
+  
+                }
+                
+                100%{
+                    background: $back-colosrDark;
+
+                }
+                
+            }  
+            background: $back-colosrDark;
+
+           
     }
 }

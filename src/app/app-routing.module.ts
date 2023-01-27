@@ -6,7 +6,7 @@ import { ViewDetailsComponent } from './components/view-details/view-details.com
 
 const routes: Routes = [
   {
-    path:'hola',
+    path:'user',
     component:LoginComponent
 
   },

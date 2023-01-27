@@ -1,12 +1,24 @@
 <header>
     <app-header></app-header>
 </header>
-<div class="principal">
+<div class="principal" [class.activeDarkmode]="darkmode">
     <app-bonito></app-bonito>
     <div class="idk">
         <h1>on trend</h1>
 
     </div>
+   <!-- asdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdffasdfasdfasdfasdfasdfasdfasdf -->
+   <div>
+        <button (click)="createNewItem()">i dont know</button>
+        <input type="text" [(ngModel)]="funti">
+        <span> {{_logAn}}</span>
+        
+        <div>
+            <button (click)="viewDetails('1231312')">throw error</button>
+        </div>
+    </div>
+   <!-- asdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdffasdfasdfasdfasdfasdfasdfasdf -->
+
     <div class="targets">
         
         <app-targets 
@@ -23,16 +35,19 @@
     </div>
     
     <div class="dontXst" [class.active2]="trueDetails"  (click)="toggleDetails()"></div>
+    <div class="bttn">
+        <app-bttn-load-more (loadMore)="loadMore()" ></app-bttn-load-more>
+    </div>
 </div>
 
 
-<div class="targetDetails" [class.active]="trueDetails">
-    <div class="divButton">
+   
+    <app-view-details (addProducts)="addProduct($event)" class="targetDetails" [class.active]="trueDetails" [trueDetails]="trueDetails" [productDetailsadd]="productSearch"></app-view-details>            
 
-        <button class="toggleDetails" (click)="toggleDetails()"><img src="../../../assets/x-svgrepo-com.svg" height="20px" alt=""></button>
-    </div>    
-       
 
-        <app-view-details [trueDetails]="trueDetails" [productDetailsadd]="productSearch"></app-view-details>
-            
+
+
+
+    <div class="error" [class.activeError]='errorChange' (click)="toggleError()">
+        <app-error-s></app-error-s>
     </div>

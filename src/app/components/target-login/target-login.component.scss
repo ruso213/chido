@@ -1,0 +1,159 @@
+$back-color :#f3f3f3;
+$butt-colorHov :#d6d4d4;
+$butt-colorACT :#af0052;
+$back-colosrDark: rgb(57 57 59);
+.target{
+    background-color: $back-color;
+    padding: 40px 80px 40px 80px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-name: whitemode;
+    animation-duration: .3s;
+    background-color: $back-color;
+    
+    .neblina{
+        
+        display: none;            
+
+        &.neblinaActive{
+            position: absolute  ;
+            animation-name: neblina;
+            animation-duration: .5s;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            background: rgba( 255, 255, 255, 0.15 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 2px );
+            -webkit-backdrop-filter: blur( 3px );
+            border-radius: 20px;
+            height: 418.19px;
+            width: 360px;
+            color: white;
+            font-size: 20px;
+            top: 214px;
+        }
+    }
+    &.activeDark{
+        animation-name: darkmode;
+        animation-duration: .3s;
+       
+        background-color: $back-colosrDark;
+    }
+    h1{
+        color:rgba(0, 0, 0, 0.678);
+    }
+    .formTarget{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        .sendButton{
+            background-color: rgb(26, 124, 252);
+            border: none;
+            transition-duration: .3s;
+            font-size: 17px;
+            padding: 10px 20px;
+            border-radius: 20px;
+
+            &.sendButtonActive{
+                background-color: rgb(95, 163, 253);
+            }
+            &.sendButtonActive:hover{
+                background-color: rgb(95, 163, 253);
+            }
+        }
+        .sendButton:hover{
+            background-color: rgb(12, 98, 211);
+
+        }
+        .divTarget{
+            display: flex;
+            flex-direction: column;
+            color: rgb(0 0 0);
+            font-size: 16px;
+            min-width: 200px;
+            min-height: 90px;
+            .errorDiv{
+                background-color: rgba(255, 0, 0, 0.308);
+                border: 1px solid red;
+                animation-duration: .3s;
+                border-radius: 5px;
+                animation-name: errorDiv;
+                display: flex;
+                text-align: center;
+                text-align: center;
+                justify-content: center;
+            }
+            &.divDark{
+                color: $back-color;
+            }
+            input{
+                background: none;
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.623);
+                border: none;
+                border-bottom: 1px solid gray;
+                outline: none;
+
+            }
+        }
+       
+    }
+}
+
+@keyframes darkmode {
+    0%{
+        background-color: $back-color;
+
+    }
+    100%{
+        background-color: $back-colosrDark;
+    }
+}
+
+@keyframes whitemode {
+    0%{
+        background-color: $back-colosrDark;
+
+    }
+    100%{
+        background-color: $back-color;
+        color: black;
+    }
+}
+
+@keyframes errorDiv {
+    0%{
+        transform: translateX(0px);
+    }
+    20%{
+        transform: translateX(5px);
+    }
+    40%{
+        transform: translateX(-5px);
+    }
+    60%{
+        transform: translateX(5px);
+    }
+    80%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(5px);
+    }
+}
+@keyframes neblina {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+

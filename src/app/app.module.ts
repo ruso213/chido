@@ -1,7 +1,7 @@
 import { NgModule, Input,EventEmitter } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from "swiper/angular";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { BonitoComponent } from './components/bonito/bonito.component';
 import { TargetsComponent } from './components/targets/targets.component';
 import { ViewDetailsComponent } from './components/view-details/view-details.component';
+import { BttnLoadMoreComponent } from './components/bttn-load-more/bttn-load-more.component';
+import { NiceButtonComponent } from './components/nice-button/nice-button.component';
+import { ErrorSComponent } from './components/error-s/error-s.component';
+import { RegisterComponent } from './components/register/register.component';
+import { TargetLoginComponent } from './components/target-login/target-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,11 @@ import { ViewDetailsComponent } from './components/view-details/view-details.com
     BonitoComponent,
     TargetsComponent,
     ViewDetailsComponent,
+    BttnLoadMoreComponent,
+    NiceButtonComponent,
+    ErrorSComponent,
+    RegisterComponent,
+    TargetLoginComponent,
     
   ],
   imports: [
@@ -32,6 +42,7 @@ import { ViewDetailsComponent } from './components/view-details/view-details.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     SwiperModule
     
   ],

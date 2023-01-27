@@ -1,0 +1,30 @@
+
+<div class="target" [class.activeDark]="darkmodes">
+    <h1>
+        Login
+    </h1>
+    <form  class="formTarget" [formGroup]="registerForm">
+        
+        <div class="divTarget" [class.divDark]="darkmodes">
+            <label for="">Email</label>
+            <input id="email" name="email" required  placeholder="Insert email" type="email"  formControlName="email">
+            <div class="errorDiv" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Email required</div>
+        </div>
+        
+        <div class="divTarget" [class.divDark]="darkmodes">
+            <label for="">Password</label>
+            <input id="password" name="password" required  placeholder="Insert password" type="text" formControlName="password">
+            <div class="errorDiv" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</div>
+        </div>
+       
+        <button (click)="logins()" [disabled]="registerForm.invalid" [class.sendButtonActive]="registerForm.invalid" class="sendButton">Send</button>
+<!--         <button (click)="profile()"  class="sendButton">profile</button>
+ -->    </form>
+
+<!--     <button class="sendButton" (click)="getall()"> get all users </button>
+ -->
+ <!-- <div class="neblina" (click)="changeTrueFalse()" [class.neblinaActive]="loginOrCreate">
+    <p> Click here for login!!</p>
+    
+ </div> -->
+</div>
