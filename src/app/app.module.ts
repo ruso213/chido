@@ -1,6 +1,6 @@
 import { NgModule, Input,EventEmitter } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from "swiper/angular";
 
@@ -19,6 +19,7 @@ import { NiceButtonComponent } from './components/nice-button/nice-button.compon
 import { ErrorSComponent } from './components/error-s/error-s.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TargetLoginComponent } from './components/target-login/target-login.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,9 @@ import { TargetLoginComponent } from './components/target-login/target-login.com
     SwiperModule
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi :true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

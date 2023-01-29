@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     this.darkmode.loginOrCreate$.subscribe(item => this.loginOrCreate = item)
   }
   createUser(){
-    return this.userServie.create(this.registerForm.value).subscribe(item=> console.log(item))  
+    return this.userServie.create(this.registerForm.value).subscribe(item=> this.darkmode.changeLoginOrCreate())  
     
   }
   initForm(){

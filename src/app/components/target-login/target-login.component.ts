@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { switchMap } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
+import { TokenService } from 'src/app/service/token.service';
 import { UserDetailsService } from 'src/app/service/user-details.service';
 import { userDetails } from 'src/app/types/user-models';
 
@@ -16,7 +18,8 @@ export class TargetLoginComponent implements OnInit {
     private darkmode : DarkModeService,
     private formulario: FormBuilder,
     private authService: AuthService,
-    private detailsUser: UserDetailsService
+    private detailsUser: UserDetailsService,
+    private Token: TokenService
 
   ){
     this.initForm()
@@ -37,22 +40,21 @@ export class TargetLoginComponent implements OnInit {
   changeTrueFalse(){
     this.darkmode.changeLoginOrCreate()
   }
-  logins(){
+   logins(){
+    
     let {email , password} = this.registerForm.value
-    return this.authService.login(email , password).subscribe(item => {
-      this.authService.takeToken(item.access_token)
-      this.authService.profile().subscribe(item => {
-        this.detailsUser.saveDetailsUser(item)
-      })
+    return  this.authService.loginAndGet(email , password).subscribe(item => {
+      console.log(`hola login`)
+      this.detailsUser.saveDetailsUser(item)
+          
+        
+        
+   
   }
     )
     
   }
-  /* profile(){
-    this.authService.profile().subscribe(item => {
-      this.detailsUser.saveDetailsUser(item)
-    })
-  } */
+  
   
   initForm(){
     this.registerForm = this.formulario.group({
