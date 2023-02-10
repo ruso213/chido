@@ -1,0 +1,39 @@
+.details{
+    height: 100%;
+    width: 100%;
+   &.darkmode{
+    background-color: rgb(1 1 4 / 78%);;
+    color: white;
+    border-radius: 20px;
+   }
+    .imageDiv{
+       
+        .image{
+            height: 300px;
+            width: 400px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+    }
+    .content{
+        margin: 0 25px;
+            .buttons{
+
+                .addCar{
+                    color: rgb(171 30 57);
+                    background: none;
+                    border: none;
+                    font-size: 15px;
+                    padding: 12px;
+                }
+                .addCar:hover{
+                    background-color:rgb(171 30 57) ;
+                    color: white;
+                } 
+            }
+    }
+    
+}
+.idk{
+    padding: 20px;
+}

@@ -1,0 +1,45 @@
+<header>
+    <app-header></app-header>
+</header>
+<div class="prinDiv">
+    <div class="imageContainer">
+        <div class="divsmallImg">
+            <img class="smallImg" (click)="imageNum(img)" *ngFor="let img of producto.images" [src]="img" alt="">
+        </div>
+        <img class="bigImg" [src]="producto.images[imagNum]" alt="">
+    </div>
+    <div class="textContent">
+        <div class="text">
+            <h1>{{producto.title}}</h1>
+            <p class="description">{{producto.description}}</p>
+        </div>
+        <p  class="price"> <span>$</span> {{producto.price}}</p>
+        <p class="intereses">Hasta 12 meses sin intereses de ${{producto.price/12  | number : '1.0-2' }}</p>
+    </div>
+    <div class="targetAdd">
+        <h1>${{producto.price}}</h1>
+        <span>Entrega GRATIS el</span>
+        <span class="negrita"> Domingo, 12 de Febrero. </span>
+        <span>Realiza el pedido en 10 hrs 32 mins </span> 
+        <p class="verde">Disponible</p>
+        <p>caintidad: 1</p>
+        <button class="addCart" (click)="addCart()">Add to cart</button>
+        <p class="transaccion"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>Transaccion segura
+        </p>
+        <div>
+
+            <div class="envio">
+                <span>Envio desde </span>
+                <span>Amazon</span>
+            </div>
+            <div class="envio">
+                <span>Vendido por </span>
+                <span>RusoStore</span>
+            </div>
+        </div>
+    </div>
+</div>
+    <img class="gato" _ngcontent-kfh-c56="" src="https://media.giphy.com/media/mTs11L9uuyGiI/giphy.gif" height="200px" alt="">
+

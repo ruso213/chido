@@ -1,0 +1,53 @@
+.gato{
+    background-color: #003366;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns:repeat(2, 1fr);
+    div{
+        animation-name: notFoud;
+        animation: girar 4s infinite linear;
+    
+   
+        background-color: rgba(255, 255, 255, 0.281);
+        padding: 15px;
+        border-radius: 7px;
+        h1{
+            margin: 0;
+            z-index: 500;
+        }
+        h2{
+            margin: 0;  
+            z-index: 500;
+        }
+    }
+}
+img{
+    z-index: 10;
+    height: 100vh;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
+    to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
+}
+@keyframes notFoud{
+    
+    
+    0%{       
+        transform: translate(0px, 0px);
+
+
+    }
+   
+
+    100%{
+        transform: translate(0px, 30px);
+
+    }
+
+    
+    
+}

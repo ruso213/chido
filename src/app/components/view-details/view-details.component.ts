@@ -12,16 +12,21 @@ import { Productos } from 'src/app/types/tipos';
 export class ViewDetailsComponent {
   constructor(
     private Api_http : ApiGetService,
-    private darkMode: DarkModeService
+    private darkMode: DarkModeService,
+    private productService : ProductsService
   ){}
   @Output() addProducts = new EventEmitter<Productos>()
   @Input() productDetailsadd : Productos ={
-    id:``,
-    title: ``,
+    id:`a`,
+    title: `a`,
     price: 0,
-    category:``,
+    category:{
+      id: 0,
+      name: ``,
+      typeImg: ``
+    },
     images:[],
-    description:``
+    description:`a`
   }
   @Input()trueDetails = false
   darkModeChange =false
@@ -31,8 +36,8 @@ export class ViewDetailsComponent {
   }
   
   addProductTocart(){
+    this.productService.addTotal(this.productDetailsadd)
     this.addProducts.emit(this.productDetailsadd)
-    
   }
   editProduct(){
     const id = this.productDetailsadd.id

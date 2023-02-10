@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpErrorResponse } from "@angular/common/http";
-import { EditProductDTO, ProductDTO, Productos } from '../types/tipos';
+import { categories, EditProductDTO, ProductDTO, Productos } from '../types/tipos';
 import { BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+
 import { throwError } from 'rxjs';
 
 @Injectable({
@@ -51,5 +52,13 @@ export class ApiGetService {
     return this.Api_Http.get<Productos[]>(`${this.api_limit}`, {
       params : {limit , offset}
     }).pipe(retry(3))
+  }
+  getAllProductCategory(id: string , limit : number , offset: number){
+    return this.Api_Http.get<Productos[]>(`${this.oneProduct}/categories/${id}/products`, {
+      params: {limit , offset}
+    })
+  }
+  getAllCategories(){
+    return this.Api_Http.get<categories[]>(`${this.oneProduct}/categories`)
   }
 }

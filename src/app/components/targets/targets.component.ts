@@ -11,7 +11,7 @@ import { ApiGetService } from '../../service/api-get.service';
 })
 export class TargetsComponent implements OnInit{
     constructor(
-      private prod : ProductsService,
+      private productsService : ProductsService,
       private api : ApiGetService,
       private darkmode: DarkModeService
     ){}
@@ -19,16 +19,21 @@ export class TargetsComponent implements OnInit{
     @Output() addProducts = new EventEmitter<Productos>()
     @Output() ToggleCart = new EventEmitter<string>()
     @Output() viewDetailsItem = new EventEmitter<string>()
-    
-    @Input() root = ``
+    @Output() productADD = new EventEmitter<Productos>()
     price = 0
     togglebttn = false
+    
+    @Input() a= ``
     @Input() tglcars= false
     @Input() product: Productos ={
       id:``,
       title: ``,
       price: 0,
-      category:``,
+      category:{
+        id: 0,
+        name: ``,
+        typeImg: ``
+      },
       images:[],
       description:``
     }
@@ -36,7 +41,11 @@ export class TargetsComponent implements OnInit{
       id:``,
       title: ``,
       price: 0,
-      category:``,
+      category:{
+        id: 0,
+        name: ``,
+        typeImg: ``
+      },
       images:[],
       description:``
     }
@@ -53,10 +62,17 @@ export class TargetsComponent implements OnInit{
     }
     viewDetails(pro: string){      
       this.viewDetailsItem.emit(pro)
+      console.log(`this.a `);
+      console.log(this.product);
+      console.log(`this.a `);
+      
     }
     addProduct(){
-      this.addProducts.emit(this.product)
-      console.log(this.details);
+
+      this.productsService.addTotal(this.product)
+      this.productADD.emit(this.product)
+      /* this.addProducts.emit(this.product)
+      console.log(this.details); */
       
     }
     toggleBTN(){

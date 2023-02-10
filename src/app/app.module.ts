@@ -20,6 +20,17 @@ import { ErrorSComponent } from './components/error-s/error-s.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TargetLoginComponent } from './components/target-login/target-login.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { SettingsBarComponent } from './components/settings-bar/settings-bar.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { BodyShopingCartComponent } from './components/body-shoping-cart/body-shoping-cart.component';
+import { ItemsInCartComponent } from './components/items-in-cart/items-in-cart.component';
+import { ItemsInCartDetailComponent } from './components/items-in-cart-detail/items-in-cart-detail.component';
+import { TotalComponent } from './components/total/total.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +47,17 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     ErrorSComponent,
     RegisterComponent,
     TargetLoginComponent,
+    ShoppingCartComponent,
+    SettingsBarComponent,
+    UserDetailsComponent,
+    BodyShopingCartComponent,
+    ItemsInCartComponent,
+    ItemsInCartDetailComponent,
+    TotalComponent,
+    CategoryComponent,
+    CategoryListComponent,
+    PageNotFoundComponent,
+    ProductDetailComponent,
     
   ],
   imports: [

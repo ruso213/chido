@@ -48,6 +48,7 @@ export class AuthService {
     return this.login(email, password)
     .pipe(
       switchMap(() => this.profile()),
+      
     )
   }
 }

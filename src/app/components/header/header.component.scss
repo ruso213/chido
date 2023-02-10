@@ -3,6 +3,16 @@ $butt-colorHov :#d6d4d4;
 $butt-colorACT :#af0052;
 $back-colosrDark: rgb(57 57 59);
 .headerPrin{
+    box-shadow: 0px 6px 8px 4px rgba(0, 0, 0, 0.11);
+    .settings{
+        width: 400px;
+        height: 100%;
+        position: fixed;
+        background-color: #af0052;
+        transform: translateX(500px);
+        z-index: 100000;
+    }
+    
     display: grid;
     animation-name: header;
       animation-duration: 0.3s;
@@ -38,9 +48,37 @@ $back-colosrDark: rgb(57 57 59);
        display: flex; 
        align-items: center;
        gap: 10px;
+       .categories{
+            display: flex;
+            color: black;
+            flex-direction: column;
+            margin-right: 5px;
+            transition-duration: .3s;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+
+            p{
+                margin: 0;
+                font-size: 15px;
+            }
+           .imgs{
+            height: 20px;
+            color: rgb(49, 49, 49);
+           }
+       }
+       .categories:hover{
+        background-color: #cecece;
+       }
+       
     }
     .RusoStore{
         display: flex;
+        cursor: default;
+        .Ruso{
+            color: rgb(0, 0, 0);
+
+        }
         .Store{
             color: rgba(0, 0, 0, 0.425);
         }
@@ -51,27 +89,73 @@ $back-colosrDark: rgb(57 57 59);
        align-items: center;
        gap: 10px;
        .email{
+        color: black;
         margin: 0;
        }
-       button{
-        width: 35px;
-        height: 35px;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        background: none;
-        border: none;
-        border-radius: 50%;
-        transition-duration: .5s;
-       }
-       button:hover{
-        background-color: $butt-colorHov;
-
-       }
-       button:active{
-        background-color: $butt-colorACT;
-
-       }
+       .buttonIMG{
+            width: 35px;
+            height: 35px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+            border-radius: 50%;
+            transition-duration: .5s;
+           }
+           .buttonIMG:hover{
+            background-color: $butt-colorHov;
+    
+           }
+           .buttonIMG:active{
+            background-color: $butt-colorACT;
+    
+           }
+       
+       .IMGS{
+            display: none;
+            position: absolute;
+            z-index: 10000;
+            top: 84px;
+            padding: 0;
+            margin: 0;
+            background: none;
+                
+                &.active3{
+                    display: block;
+                    animation-name: listIMG;
+                    animation-duration: .4s;
+                    li{
+                        list-style: none;
+                        border-radius: 100%;
+                        background-color: $butt-colorHov;
+                        transition-duration: .3s;
+    
+                    }
+                    li:hover{
+                        background-color:rgb(92, 92, 92);
+                    }
+                }
+            .buttonIMG{
+                width: 35px;
+                height: 35px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                border-radius: 50%;
+                transition-duration: .5s;
+            }
+            .buttonIMG:hover{
+                background-color: $butt-colorHov;
+        
+            }
+            .buttonIMG:active{
+                background-color: $butt-colorACT;
+        
+            }
+        }
     }
     
     &.activeDark{
@@ -94,5 +178,42 @@ $back-colosrDark: rgb(57 57 59);
             background: $back-colosrDark;
 
            
+    }
+}
+.container{
+    display: none;
+    z-index: 100000000000;
+    color: black;
+    &.active7{
+        display: block;
+        animation-name:listcategories ;
+        animation-duration: .7s;
+    }
+}
+
+@keyframes listcategories {
+    0%{
+        
+        
+        clip-path: inset(0 100%  0% 0);
+    }
+    100%{
+     
+       
+        clip-path: inset(0 0 0 0);
+
+    }
+}
+@keyframes listIMG {
+    0%{
+        
+        
+        clip-path: inset(0 0 100%   0);
+    }
+    100%{
+     
+       
+        clip-path: inset(0 0 0 0);
+
     }
 }

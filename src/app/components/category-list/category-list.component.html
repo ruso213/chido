@@ -1,0 +1,8 @@
+<div class="containerCategory">
+    <span class="category"  routerLink="">All</span>
+    <span *ngFor="let category of allCategories"
+    routerLinkActive="active"
+    class="category"
+    [routerLink]="'/category/'+category.id.toString()"
+    >{{category.name}}</span>
+</div>

@@ -9,7 +9,6 @@ import { AuthService } from './auth.service';
 export class UserDetailsService{
 
   constructor(
-    private authService: AuthService
   ) { }
   private userDetails = new BehaviorSubject<userDetails>({
     name:``,
@@ -18,9 +17,10 @@ export class UserDetailsService{
   })
   
   userDetails$= this.userDetails.asObservable()
-  saveDetailsUser(userDetail:userDetails){
-    this.userDetails.next(userDetail)
-    console.log(this.userDetails.value);
+  saveDetailsUser(userDetaile:userDetails){
+    localStorage.setItem(`userDetail` , JSON.stringify(userDetaile) )
+    this.userDetails.next(JSON.parse(localStorage.getItem(`userDetail`)|| `{}`))
+    
     
   }
 }

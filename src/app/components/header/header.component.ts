@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
+import { AuthService } from 'src/app/service/auth.service';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ProductsService } from 'src/app/service/products.service';
 import { UserDetailsService } from 'src/app/service/user-details.service';
@@ -15,28 +16,35 @@ export class HeaderComponent implements OnInit {
   constructor(
     private productsService :ProductsService,
     private changeDarkMode : DarkModeService,
-    private detailsUser: UserDetailsService
+    private detailsUser: UserDetailsService,
+    private authservice: AuthService
 
-  ){}
-    proInCar = 0
+  ){
+    productsService.load()
+  }
+  categoryChange = false
+    proInCar : number = 0
     darkmode = false
-    ngOnInit(){
-      this.changeDarkMode.darkMode$.subscribe(item => this.darkmode = item)
-      this.productsService.mycart$.subscribe(item => this.proInCar = item.length)
-      this.detailsUser.userDetails$.subscribe(item => this.userDetails = item)
-
-      /* this.asdfs =  this.productsService.mycart$.pipe(
-        takeUntil(this.unsubsribe)
-      ).subscribe(item => this.proInCar = item.length) */
-    }
-    userDetails : userDetails  = {
+    userDetails : userDetails = {
       name:``,
       email:``,
       id: ``
     }
+    trufal= false
+    ngOnInit(){
+      this.changeDarkMode.darkMode$.subscribe(item => this.darkmode = item)
+      this.productsService.mycart$.subscribe(item => this.proInCar = item.length)
+      this.detailsUser.userDetails$.subscribe(item => this.userDetails = JSON.parse(localStorage.getItem(`userDetail`)|| `{}`))
+
+      
+    }
+    changeTrueFalse(){
+      this.trufal = !this.trufal
+    }
     changeDarkModeTrueFalse(){
       this.changeDarkMode.darkModeChange()
     }
+    
    /*  ngOnDestroy(){
       this.asdfs.unsubscribe()
       this.unsubsribe.next()

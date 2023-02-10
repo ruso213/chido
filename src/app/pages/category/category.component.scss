@@ -1,0 +1,132 @@
+.targets{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 50px 50px 50px;
+}
+.categor{
+    display: flex;
+    justify-content: center;
+}
+.bttn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.targetDetails{
+    transition-duration: .4s;
+    height: 0;
+    width: 0;
+    position: sticky;
+    bottom: 0px;
+    right:0;
+    top: 0%;
+    z-index: 1000000;
+    left: 110%;
+    transform: translateX(110%);
+    margin: 0;
+    animation-name: lateralOculto;
+    animation-duration: .5s;
+    transform: translateX(-6%);
+    margin: 0px 0px 0px 0px;
+    display: none;
+    
+    border-radius: 20px;
+    
+   
+    &.active{
+       width: 400px;
+       height: 100vh; 
+       display: flex;
+       flex-direction: column;
+       background-color: white;
+       height: 100vh;
+       animation-name: lateral;
+       animation-duration: .5s;
+       transform: translateX(-6%);
+       margin: 0px 0px 0px 0px;
+      
+       
+       
+       
+    }
+    
+   
+ }
+ .dontXst{
+    display: none;
+    
+    &.active2 {
+       display: block;
+       background-color: rgb(0 0 0 / 64%);
+       position: fixed;
+       z-index: 200;
+       height: 100%;
+       width: 100%;
+       top: 0;
+       bottom: 0;
+       right: 0;
+       left: 0;
+    }
+ }
+
+ .isla{
+   position: fixed;
+   top: 90%;
+   z-index: 1000000000000000;
+   display: none;
+   height: 50px;
+   min-width: 200px;
+   max-width: 350px;
+   bottom: 0px;
+   right: 0;
+   color: white;
+   left: 37%;
+   margin-bottom: 20px;
+   transition-duration: .7s;
+   background-color: rgb(171, 30, 57);;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   opacity: 0;
+   &.active{
+      animation-name:isla ;
+      animation-duration: .7s;
+      display: flex;
+      opacity: 1;
+
+   }
+}
+
+@keyframes isla {
+   0%{
+      opacity: 0;
+   }
+   100%{
+      opacity: 1;
+   }
+}
+ @keyframes lateralOculto {
+    0%{
+       transform: translateX(-10%);
+ 
+    }
+    50%{
+       transform: translateX(50%);
+ 
+    }
+       
+       
+ }
+ @keyframes lateral {
+    0%{
+       transform: translateX(50%);
+    }
+    50%{
+       transform: translateX(-10%);
+    }
+    
+    
+ }

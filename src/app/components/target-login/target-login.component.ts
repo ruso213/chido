@@ -27,16 +27,15 @@ export class TargetLoginComponent implements OnInit {
   ngOnInit(): void {
     this.darkmode.darkMode$.subscribe(item => this.darkmodes = item )
     this.darkmode.loginOrCreate$.subscribe(item => this.loginOrCreate = !item)
-    this.detailsUser.userDetails$.subscribe(item => this.userDetails = item)
-  }
+ }
   loginOrCreate=false
   darkmodes = false
   registerForm! :FormGroup;
-  userDetails : userDetails  = {
+  /* userDetails : userDetails  = {
     name:``,
     email:``,
     id: ``
-  }
+  } */
   changeTrueFalse(){
     this.darkmode.changeLoginOrCreate()
   }
@@ -44,7 +43,6 @@ export class TargetLoginComponent implements OnInit {
     
     let {email , password} = this.registerForm.value
     return  this.authService.loginAndGet(email , password).subscribe(item => {
-      console.log(`hola login`)
       this.detailsUser.saveDetailsUser(item)
           
         
@@ -59,7 +57,7 @@ export class TargetLoginComponent implements OnInit {
   initForm(){
     this.registerForm = this.formulario.group({
        email : ['',[ Validators.required, Validators.minLength(5),Validators.email]],
-       password : ['', [Validators.required,  Validators.minLength(5)]],
+       password : ['', [Validators.required,  Validators.minLength(4)]],
      })
      console.log(this.registerForm);
      

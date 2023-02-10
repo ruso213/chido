@@ -26,6 +26,7 @@ export class StoreComponent {
     tglcar= false
     darkmode= false
     trueDetails= false
+    trueSettings = false
     errorChange = false
     limit = 9
     offset = 0
@@ -35,9 +36,18 @@ export class StoreComponent {
       id:``,
       title: ``,
       price: 0,
-      category:``,
+      category:{
+        id: 0,
+        name: ``,
+        typeImg: ``
+      },
       images:[],
       description:``
+    }
+    changetrueSettings(){
+      this.trueSettings = !this.trueSettings
+      console.log(`hola2`);
+      
     }
     createNewItem(){
       let produ : ProductDTO = {
@@ -57,12 +67,11 @@ export class StoreComponent {
       this.apiGet.getAllProductsOfPage(this.limit, this.offset).subscribe(data=> this.productos= this.productos.concat(data) )
       this.offset += this.limit
     }
-    addProduct(event:Productos){
+   /*  addProduct(event:Productos){
       
       
       const productobuscado : Productos | undefined = this.productos.find(item => item == event)
-      console.log(event);
-      console.log(this.productos);
+      
       
       if(productobuscado){
         this.productService.addTotal(productobuscado)
@@ -78,7 +87,7 @@ export class StoreComponent {
           this.tglcar= !this.tglcar
         },3000)
       }
-    }
+    } */
 
     viewDetails(pro : string){
     this.apiGet.getProductId(pro).subscribe(data => {

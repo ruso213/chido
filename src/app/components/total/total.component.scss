@@ -1,0 +1,71 @@
+.PrinContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border: 1px solid rgb(209 208 208);
+    background-color: rgb(252 252 252);
+    box-shadow: 4px 6px 8px 4px rgb(0 0 0 / 10%);
+    border-radius: 7px;
+    padding: 20px;
+    
+    .secContainer{
+        border-bottom: 1px solid rgb(209, 208, 208);
+        .barra{
+            border-radius: 7px;
+            display: flex;
+            border: 1px solid rgb(209, 208, 208);
+            max-width: 300px;
+            justify-content: space-between;
+            input{
+                outline: none;
+                padding: 10px;
+                background: none;
+                max-width: 300px;
+                border: none;
+                
+            }
+            button{
+                background: none;
+                padding: 10px;
+                color: rgb(171, 30, 57);
+                border: none;
+
+
+
+            }
+            button:hover{
+                background-color: rgb(171, 30, 57);
+                color: rgb(255 255 255);
+            }
+        }
+    }
+    .linea{
+        width: 500px;
+        height: 1px;
+        background-color: gray;
+    }
+    .secontText{
+        .subtotal{
+            display: flex;
+            margin-top: 0;
+            gap: 10px;
+            justify-content: space-between;
+            p{
+                margin: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+    }
+    button{
+        background: rgb(171, 30, 57);
+        padding: 10px;
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
+    button:hover{
+        background: rgb(155, 23, 47);
+
+    }
+}
