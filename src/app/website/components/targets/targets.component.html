@@ -1,0 +1,21 @@
+
+
+
+    <div class="target_prin" [class.darkmode]="darkmodechnfde">
+        <div class="target">        
+            <div class="image_tar">
+                
+                <img [src]="product.images[0]"  alt="">
+            </div>
+            <div class="text">
+                <span  class="price"> ${{product.price}} </span>
+                <h2>{{product.title | slice: 0 : 12}}</h2>
+                <p> {{product.description | slice: 0 : 100}}...  </p>
+            </div>
+        </div>
+        <div class="buttons ">
+            <button class="Vw_D" [routerLink]="'/product/'+ product.id" >View  details</button>
+            <button class="car_add" (click)="toggleBTN()" (click)="addProduct()"><img src="../../../assets/add_shopping_cart_black.svg" height="25px" ></button>
+        </div>
+    </div>
+    

@@ -1,0 +1,27 @@
+<!-- <app-header></app-header>
+ --><div>
+    <div class="categor">
+        <h1>{{categoryName}}</h1>
+    </div>
+    <div class="targets">
+    
+        <app-targets  
+        *ngFor="let pro of productsArr"
+        [product]="pro"
+        (productADD)='changeTRUfalISLA($event)'
+        (viewDetailsItem)="viewDetails($event)"
+    
+        ></app-targets>
+    </div>
+    <div class="bttn">
+        <app-bttn-load-more  (loadMore)="loadMore()" ></app-bttn-load-more>
+    
+    </div>
+    <div class="dontXst" [class.active2]="trueDetails"  (click)="trueDetails = !trueDetails"></div>
+    <div class="isla" [class.active]="tglcar">
+        <span >{{title}} añadido al carro </span>
+    </div>
+</div>
+
+<app-view-details  class="targetDetails" (addProducts)="changeTRUfalISLA($event)" [class.active]="trueDetails" [trueDetails]="trueDetails" [productDetailsadd]="productSearch"></app-view-details>            
+
