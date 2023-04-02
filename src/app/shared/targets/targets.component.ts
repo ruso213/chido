@@ -1,8 +1,8 @@
 import { Component , Input, EventEmitter, Output,OnInit } from '@angular/core';
+import { ApiGetService } from 'src/app/service/api-get.service';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ProductsService } from 'src/app/service/products.service';
 import { Productos } from 'src/app/types/tipos';
-import { ApiGetService } from '../../../service/api-get.service';
 
 @Component({
   selector: 'app-targets',

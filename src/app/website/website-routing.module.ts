@@ -4,12 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { StoreComponent } from './components/store/store.component';
-import { ViewDetailsComponent } from './components/view-details/view-details.component';
+/* import { StoreComponent } from './components/store/store.component';*/
 import { CategoryComponent } from './pages/category/category.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { StoreComponent } from './pages/store/store.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserDetailsModule } from './pages/user-details/user-details.module';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       {
         path:'home',
         component:StoreComponent
+        
     
       },
       {
@@ -37,15 +39,15 @@ const routes: Routes = [
     
       },
       {
-        path:`user-detail`,
-        component:UserDetailsComponent
-    
+        path:`category`,
+        loadChildren: () => import("./pages/category/category.module").then(i => i.CategoryModule)
+        
       },
       {
-        path:`category/:id`,
-        component:CategoryComponent
-    
+        path:`user-detail`,
+        loadChildren: ()=> import(`./pages/user-details/user-details.module`).then(i => i.UserDetailsModule)
       },
+    
       {
         path:`product/:id`,
         component:ProductDetailComponent

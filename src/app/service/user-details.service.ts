@@ -13,7 +13,8 @@ export class UserDetailsService{
   private userDetails = new BehaviorSubject<userDetails>({
     name:``,
     id:``,
-    email:``
+    email:``,
+    roles : `admin`
   })
   
   userDetails$= this.userDetails.asObservable()

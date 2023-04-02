@@ -28,7 +28,8 @@ export class HeaderComponent implements OnInit {
     userDetails : userDetails = {
       name:``,
       email:``,
-      id: ``
+      id: ``,
+      roles:`admin`
     }
     trufal= false
     ngOnInit(){

@@ -1,13 +1,10 @@
-<!-- <header>
-    <app-header ></app-header>
-</header> -->
+
 <div class="principal" [class.activeDarkmode]="darkmode">
     <app-bonito></app-bonito>
     <div class="idk">
         <h1>on trend</h1>
 
     </div>
-   <!-- asdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdffasdfasdfasdfasdfasdfasdfasdf -->
    <div>
         <button routerLink="asdffasd">i dont know</button>
         <input type="text" [(ngModel)]="funti">
@@ -17,7 +14,6 @@
             <button (click)="viewDetails('1231312')">throw error</button>
         </div>
     </div>
-   <!-- asdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdffasdfasdfasdfasdfasdfasdfasdf -->
 
     <div class="targets">
         <app-targets 
@@ -40,12 +36,10 @@
 
 
 
-<!--     <app-settings-bar  class="settings"  [class.active]="trueSettings"></app-settings-bar>
--->
+
 
 
 
 <div class="error" [class.activeError]='errorChange' (click)="toggleError()">
     <app-error-s></app-error-s>
 </div>
-<app-view-details  class="targetDetails" [class.active]="trueDetails" [trueDetails]="trueDetails" [productDetailsadd]="productSearch"></app-view-details>            
