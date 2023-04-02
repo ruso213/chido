@@ -27,6 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreComponent } from './pages/store/store.component';
 import { SharedModule } from '../shared/shared.module';
+import { CerrarSesionComponent } from './components/cerrar-sesion/cerrar-sesion.component';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { SharedModule } from '../shared/shared.module';
     PageNotFoundComponent,
     ProductDetailComponent,
     LayoutComponent,
+    CerrarSesionComponent,
+    NoAccessComponent,
     
   ],
   imports: [

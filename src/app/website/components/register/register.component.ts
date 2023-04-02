@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit {
   register : createUserDTO={
     password:'',
     email:'',
-    name:''
+    name:'',
+    role:""
   } 
   loginOrCreate = false
   changeTrueFalse(){
@@ -35,7 +36,14 @@ export class RegisterComponent implements OnInit {
     this.darkmode.loginOrCreate$.subscribe(item => this.loginOrCreate = item)
   }
   createUser(){
-    return this.userServie.create(this.registerForm.value).subscribe(item=> this.darkmode.changeLoginOrCreate())  
+    if(this.registerForm.valid){
+
+      return this.userServie.create(this.registerForm.value).subscribe(item=> this.darkmode.changeLoginOrCreate())  
+    }
+    
+    else{
+      return this.registerForm.markAllAsTouched()
+    }
     
   }
   initForm(){

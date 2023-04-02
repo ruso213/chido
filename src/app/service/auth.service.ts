@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, switchMap, tap } from 'rxjs';
-import { auth, userDetails } from '../types/user-models';
+import { auth, user, userDetails } from '../types/user-models';
 import { ApiGetService } from './api-get.service';
 import { TokenService } from './token.service';
 
@@ -15,18 +15,18 @@ export class AuthService {
     private ApiService: ApiGetService,
     private tokenAcess : TokenService
 
-   /*  fdadsffffffffffffffffffffffffffffffffffasdfasdfasdfasdf
-    fdadsffffffffffffffffffffffffffffffffffasdfasdfasdfasdf
-    fdadsffffffffffffffffffffffffffffffffffasdfasdfasdfasdf
-    fdadsffffffffffffffffffffffffffffffffffasdfasdfasdfasdf
-    fdadsffffffffffffffffffffffffffffffffffasdfasdfasdfasdf */
-    
+  
     
   ) { }
   private Api_url = `${this.ApiService.oneProduct}/auth`
-  private token = ``
    
+  private user = new BehaviorSubject<user| null>(null)
+  user$ = this.user.asObservable()
    
+  logOut(){
+    this.tokenAcess.removeToken()
+    this.user.next(null)
+  }
 
   login(email:string , password: string){
     
@@ -39,9 +39,13 @@ export class AuthService {
     )
   }
   
-  profile(){
+  profile(){ 
+    return this.httpsC.get<user>(`${this.Api_url}/profile`).pipe(
+      tap(item => {
+        this.user.next(item)
+      })
+    )
     
-    return this.httpsC.get<userDetails>(`${this.Api_url}/profile`,{} )
   }
 
   loginAndGet(email: string, password: string) {

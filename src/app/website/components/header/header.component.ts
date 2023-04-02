@@ -3,6 +3,7 @@ import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ProductsService } from 'src/app/service/products.service';
+import { TokenService } from 'src/app/service/token.service';
 import { UserDetailsService } from 'src/app/service/user-details.service';
 import { Productos } from 'src/app/types/tipos';
 import { userDetails } from 'src/app/types/user-models';
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
     private productsService :ProductsService,
     private changeDarkMode : DarkModeService,
     private detailsUser: UserDetailsService,
-    private authservice: AuthService
+    private authservice: AuthService,
+    private tokenServie : TokenService
 
   ){
     productsService.load()
@@ -25,19 +27,17 @@ export class HeaderComponent implements OnInit {
   categoryChange = false
     proInCar : number = 0
     darkmode = false
-    userDetails : userDetails = {
-      name:``,
-      email:``,
-      id: ``,
-      roles:`admin`
-    }
+    userDetails : userDetails | null = null
     trufal= false
+    cerrarSsn = false
     ngOnInit(){
       this.changeDarkMode.darkMode$.subscribe(item => this.darkmode = item)
       this.productsService.mycart$.subscribe(item => this.proInCar = item.length)
-      this.detailsUser.userDetails$.subscribe(item => this.userDetails = JSON.parse(localStorage.getItem(`userDetail`)|| `{}`))
-
+      this.authservice.user$.subscribe(item => this.userDetails = item)
+      this.authservice.profile().subscribe(item => this.userDetails = item)   
+      this.changeDarkMode.cerrarSsn$.subscribe(item => this.cerrarSsn = item)
       
+  
     }
     changeTrueFalse(){
       this.trufal = !this.trufal
@@ -45,10 +45,10 @@ export class HeaderComponent implements OnInit {
     changeDarkModeTrueFalse(){
       this.changeDarkMode.darkModeChange()
     }
+
+    logOut(){
+      this.changeDarkMode.trueFal()
+
+    }
     
-   /*  ngOnDestroy(){
-      this.asdfs.unsubscribe()
-      this.unsubsribe.next()
-      this.unsubsribe.complete()
-    } */
-}
+  }

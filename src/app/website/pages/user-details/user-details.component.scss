@@ -1,0 +1,17 @@
+.father{
+
+    max-height: 100vh;
+    padding: 40px;
+    display: flex;
+    .target{
+        img{
+            height: 250px;
+        }
+        background-color: #fcfcfc;
+        border-radius: 5px;
+        border: 1px solid #d1d0d0;
+        padding: 20px;
+        margin-right: 5px;
+        box-shadow: 4px 6px 8px 4px rgb(0 0 0 / 10%);
+    }
+}

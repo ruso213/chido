@@ -1,1 +1,28 @@
-<p>tasks works!</p>
+
+<p>random Text</p>
+<span>{{inputPrin.value}}</span>
+<input type="text" [formControl]='inputPrin'>
+
+<h2> Videojuegos favoritos </h2>
+<div>
+
+    <p *ngFor="let items of preferenceVideoGames">
+        <label for="">{{items.name}}
+            
+            <input type="checkbox" [value]="items.value" (change)="optionchanges($event)">
+        </label>
+    </p>
+    
+</div>
+
+
+<form [formGroup]="form">
+    <span>Nombre: </span>
+    <input type="text" formControlName="name">
+    <span>Contraseña: </span>
+    <input type="text" formControlName="password">
+    <span>Nombre de usuario: </span>
+    <input type="text" formControlName="nameTAG">
+
+    <button (click)="getALL()"></button>
+</form>

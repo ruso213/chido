@@ -15,11 +15,9 @@ export class ApiGetService {
     private Api_Http : HttpClient
   ) { }
   
-  api_limit = 'https://young-sands-07814.herokuapp.com/api/products?'
-  oneProduct = `https://young-sands-07814.herokuapp.com/api`
- /*  getAllProducts(){
-    return this.Api_Http.get<Productos[]>(this.api_limit)
-  } */
+  api_limit = 'https://damp-spire-59848.herokuapp.com/api/products?'
+  oneProduct = `https://damp-spire-59848.herokuapp.com/api`
+ 
   getProductId(id:string){
     console.log(`hola mundo`);
     

@@ -5,6 +5,7 @@ import { CmsRoutingModule } from './cms-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { GridComponent } from './grid/grid.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { TasksComponent } from './tasks/tasks.component';
   ],
   imports: [
     CommonModule,
-    CmsRoutingModule
+    CmsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CmsModule { }

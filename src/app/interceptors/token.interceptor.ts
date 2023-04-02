@@ -17,11 +17,16 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = this.addToken(request)
+    console.log(request)
+    
     return next.handle(request);
+
+    
   }
 
   private addToken(request: HttpRequest<unknown>){
     const token = this.tokenService.getToken()
+    
     if(token){
       const authReq = request.clone(
         {

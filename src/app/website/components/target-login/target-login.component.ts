@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
@@ -19,7 +20,8 @@ export class TargetLoginComponent implements OnInit {
     private formulario: FormBuilder,
     private authService: AuthService,
     private detailsUser: UserDetailsService,
-    private Token: TokenService
+    private Token: TokenService,
+    private router : Router
 
   ){
     this.initForm()
@@ -40,17 +42,20 @@ export class TargetLoginComponent implements OnInit {
   changeTrueFalse(){
     this.darkmode.changeLoginOrCreate()
   }
-   logins(){
+   
+  logins(){
     
     let {email , password} = this.registerForm.value
-    return  this.authService.loginAndGet(email , password).subscribe(item => {
-      this.detailsUser.saveDetailsUser(item)
-          
-        
-        
-   
-  }
-    )
+    if(this.registerForm.valid){
+      
+      return  this.authService.loginAndGet(email , password).subscribe(item => {
+        this.detailsUser.saveDetailsUser(item)
+        this.router.navigate([`/user-detail`])
+      })
+      
+    }else{
+      return this.registerForm.markAllAsTouched()
+    }
     
   }
   

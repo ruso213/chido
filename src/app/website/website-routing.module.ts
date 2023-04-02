@@ -11,7 +11,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { StoreComponent } from './pages/store/store.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserDetailsModule } from './pages/user-details/user-details.module';
-
+import {AuthGuard} from '../guards/auth.guard';
 const routes: Routes = [
   {
     path:'',
@@ -45,7 +45,8 @@ const routes: Routes = [
       },
       {
         path:`user-detail`,
-        loadChildren: ()=> import(`./pages/user-details/user-details.module`).then(i => i.UserDetailsModule)
+        loadChildren: ()=> import(`./pages/user-details/user-details.module`).then(i => i.UserDetailsModule),
+        canActivate: [AuthGuard]
       },
     
       {

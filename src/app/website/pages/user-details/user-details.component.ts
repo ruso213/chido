@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDetailsService } from 'src/app/service/user-details.service';
-import { userDetails } from 'src/app/types/user-models';
-
+import { user, userDetails } from 'src/app/types/user-models';
+import { AuthService } from "./../../../service/auth.service";
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -9,16 +9,23 @@ import { userDetails } from 'src/app/types/user-models';
 })
 export class UserDetailsComponent implements OnInit{
   constructor(
-    private userDetailsService : UserDetailsService
+    private authService : AuthService
   ){}
     
-  profile  : userDetails = {
+  profile  : user = {
     name:``,
-    id:``,
-    roles:`admin`,
-    email: ``
+    id : ``,
+    role : ``,
+    email: ``,
+    password : ``
+    
   }
     ngOnInit(): void {
-      this.profile = JSON.parse(localStorage.getItem(`userDetail`) || `{}`)
+      this.authService.user$.subscribe(i => {
+        if(i){this.profile = i
+          console.log(this.profile);
+          
+        }
+      })
     }
 }

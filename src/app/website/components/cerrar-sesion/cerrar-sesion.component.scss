@@ -1,0 +1,44 @@
+.cerrar{
+    display: flex;
+    width: 400px;
+    height: 200px;
+    flex-direction: column;
+    background-color: rgb(216, 216, 216);
+    gap: 40px;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 10px;
+
+    .pregunta{
+        display: flex;
+        flex-direction: column;
+    }
+    .btnns{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+
+        button{
+            padding:10px  40px;
+            margin-bottom: 40px;
+            border-radius: 2px;
+            border: none;
+        }
+        .Si{
+            background-color: #86013f;
+            color: white;
+        }
+        .Si:active{
+            background-color: #680231;
+        }
+        .No{
+            background-color: #e5e5e5;
+            border: 1px solid #b6b5b5;
+        }
+        .No:active{
+            background-color: #c4c4c4;
+
+        }
+    }
+}

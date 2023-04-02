@@ -27,7 +27,7 @@
             <div class="errorDiv" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</div>
         </div>
        
-        <button (click)="createUser()" [disabled]="registerForm.invalid" [class.sendButtonActive]="registerForm.invalid" class="sendButton">Send</button>
+        <button (click)="createUser()"  class="sendButton">Send</button>
     </form>
 
 <!--     <button class="sendButton" (click)="getall()"> get all users </button>
