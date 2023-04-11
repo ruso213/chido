@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { UsersService } from 'src/app/service/users.service';
 import { createUserDTO } from 'src/app/types/user-models';
+import { MyValidators } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,8 @@ export class RegisterComponent implements OnInit {
     password:'',
     email:'',
     name:'',
-    role:""
+    role:"",
+    avatar:''
   } 
   loginOrCreate = false
   changeTrueFalse(){
@@ -50,7 +52,7 @@ export class RegisterComponent implements OnInit {
    this.registerForm = this.formulario.group({
       name : ['',[ Validators.required, Validators.minLength(4)]],
       email : ['',[ Validators.required, Validators.minLength(5),Validators.email]],
-      password : ['', [Validators.required,  Validators.minLength(5)]],
+      password : ['', [Validators.required,  Validators.minLength(5), MyValidators.passwordValid]],
     })
     console.log(this.registerForm);
     

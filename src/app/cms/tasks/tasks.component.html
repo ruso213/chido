@@ -1,28 +1,52 @@
-
-<p>random Text</p>
-<span>{{inputPrin.value}}</span>
-<input type="text" [formControl]='inputPrin'>
-
-<h2> Videojuegos favoritos </h2>
 <div>
+        <p>random Text</p>
+        <span>{{inputPrin.value}}</span>
+        <input type="text" [formControl]='inputPrin'>
+        
+    <h2> Videojuegos favoritos </h2>
 
-    <p *ngFor="let items of preferenceVideoGames">
-        <label for="">{{items.name}}
+
+
+
+    <form [formGroup]="form" class="formUser">
+        <div>
+
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" type="text" formControlName="name">
+                
+            </mat-form-field>
             
-            <input type="checkbox" [value]="items.value" (change)="optionchanges($event)">
-        </label>
-    </p>
-    
+            <mat-form-field [@slideInDownAnimation]>
+                <mat-label>Contraseña: </mat-label>
+                <input  matInput placeholder="Password" type="text" formControlName="password">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Nombre de usuario: </mat-label>
+            <input  matInput placeholder="NameTAG" type="text" formControlName="nameTAG">
+        </mat-form-field>
+        
+    </div>
+        <button mat-raised-button color="primary" (click)="getALL()">
+            submit
+        </button>
+    </form>
+
+    <div>
+
+        <p>Favorite like souls</p>
+        <mat-chip-listbox >
+            <mat-chip-option *ngFor="let items of preferenceVideoGames" [value]="items.value">
+                {{items.name}}
+            </mat-chip-option>
+        </mat-chip-listbox>
+        
+    </div>
+   
+   
 </div>
 
+        
 
-<form [formGroup]="form">
-    <span>Nombre: </span>
-    <input type="text" formControlName="name">
-    <span>Contraseña: </span>
-    <input type="text" formControlName="password">
-    <span>Nombre de usuario: </span>
-    <input type="text" formControlName="nameTAG">
-
-    <button (click)="getALL()"></button>
-</form>
+    

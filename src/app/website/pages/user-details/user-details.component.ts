@@ -17,7 +17,8 @@ export class UserDetailsComponent implements OnInit{
     id : ``,
     role : ``,
     email: ``,
-    password : ``
+    password : ``,
+    avatar:''
     
   }
     ngOnInit(): void {

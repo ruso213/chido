@@ -13,6 +13,7 @@ $back-colosrDark: rgb(57 57 59);
     animation-name: whitemode;
     animation-duration: .3s;
     background-color: $back-color;
+    min-height: 390px;
     
     .neblina{
         
@@ -93,15 +94,7 @@ $back-colosrDark: rgb(57 57 59);
             &.divDark{
                 color: $back-color;
             }
-            input{
-                background: none;
-                font-size: 16px;
-                color: rgba(0, 0, 0, 0.623);
-                border: none;
-                border-bottom: 1px solid gray;
-                outline: none;
-
-            }
+           
         }
        
     }

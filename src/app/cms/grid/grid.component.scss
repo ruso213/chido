@@ -1,0 +1,11 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.formPract{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 50px;
+    gap: 10px;
+    border: 1px solid rgb(202, 202, 202);
+    margin: 20px;
+    border-radius: 10px;
+}

@@ -5,11 +5,31 @@
         </div>
     </header>
     <nav class="bar_nav">
-        <ul>
-            <li class="list" routerLink="tasks">tasks</li>
-            <li class="list" routerLink="grid">grid</li>
-            <li class="list" routerLink="">home</li>
-        </ul>
+        <mat-button-toggle-group class="listM">
+            <mat-button-toggle class="list" routerLink="tasks">
+                <span>tasks </span> 
+            </mat-button-toggle>
+            <mat-button-toggle class="list" routerLink="grid"> 
+                <span>
+                    Grid
+                </span>
+            </mat-button-toggle>
+            <mat-button-toggle class="list" routerLink="category">
+                <span>
+                    Create category
+                </span>           
+            </mat-button-toggle>
+            <mat-button-toggle class="list" routerLink="checkCategories">
+                <span>
+                    Check all categories
+                </span>           
+            </mat-button-toggle>
+            <mat-button-toggle class="list" routerLink="">
+                <span>
+                    Home
+                </span>           
+            </mat-button-toggle>
+        </mat-button-toggle-group>
     </nav>
     <main>
         <router-outlet></router-outlet>

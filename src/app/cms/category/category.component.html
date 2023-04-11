@@ -1,0 +1,23 @@
+<body class="categoryForm">
+    
+    <h2>Crear categoria nueva</h2>
+    
+    <form  (ngSubmit)="submit()"  [formGroup]="formCreateCategory">
+        <mat-card class="formCard">
+            <mat-card-content class="CategoryCreate">
+                <mat-form-field class="inputpadre">
+                    <mat-label>Nombre de la categoria</mat-label>
+                    <input formControlName="name" type="text" matInput>
+                </mat-form-field>
+                <div class="inputpadre">
+                    <input (change)="uploadFile()" placeholder='Subir imagen' formControlName='image'type="file" class="subirimg">
+                </div>
+                <mat-error class='error'*ngIf="truefalse">Asegurate que sea un link de imagen</mat-error>
+            </mat-card-content>
+            <mat-card-actions class="bttn">
+                <button mat-raised-button >Crear nueva categoria</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+
+</body>

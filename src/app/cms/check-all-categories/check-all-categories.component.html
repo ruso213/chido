@@ -1,0 +1,27 @@
+<body>
+    <mat-card class="matnombres">
+        <mat-card-content class="nombres">
+            <p>ID</p>
+            <P>Nombre</P>
+            <P>Imagen</P>
+            <p>Acciones</p>
+        </mat-card-content>
+    </mat-card>
+    <div class="containerDiv">
+
+        <mat-card *ngFor="let items of categories" class="matcard">
+            <mat-card-content class="cardCategorie">
+            <div  class="buttonsActs">
+                <button mat-raised-button>Editar</button>
+                <button mat-raised-button color="warn" (click)="deletecategory(items.id)">borrar</button>
+            </div>
+            <div class="content" class="imageContainer">
+                <img [src]="items.image" height="70px" alt="">
+            </div>
+            <p class="content">{{items.name}}</p>
+            <p class="content">ID: {{items.id}}</p>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</body>

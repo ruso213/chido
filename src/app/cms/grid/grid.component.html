@@ -1,1 +1,56 @@
-<p>grid works!</p>
+<body>
+    <h1> Register de prueba </h1>
+
+    <form class="formPract" action="" [formGroup]="registerFormPrac">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="name">
+            <mat-error *ngIf="registerFormPrac.get('name')?.touched && registerFormPrac.get('name')?.errors?.['minlength']"> 
+                Minimo debe de tener 3 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="registerFormPrac.get('password')?.touched && registerFormPrac.get('password')?.errors?.['minlength']">  
+                Minimo debe tener 7 caracteres
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Confirm password</mat-label>
+            <input type="password" matInput formControlName="confirmPassword">
+            <div>
+                <mat-error *ngIf="registerFormPrac.get('confirmPassword')?.touched && registerFormPrac.hasError('password_confirm')" > 
+                    Revisa que todo este correcto
+                </mat-error>
+            </div>
+
+        </mat-form-field>
+        <mat-radio-group formControlName="type">
+            <mat-radio-button value="company">Company</mat-radio-button>
+            <mat-radio-button value="customer">Customer</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field *ngIf="typeField?.value === 'company'">
+            <mat-label> Company name</mat-label>
+            <input type="text" matInput formControlName="companyName">
+        </mat-form-field>
+        <button mat-raised-button (click)="submit()" color="accent">Accent</button>
+
+    </form>
+
+
+    <form action="" class="formPract" [formGroup]="form0To100">
+        <mat-form-field>
+            <mat-label>Mayor a 0</mat-label>
+            <input type="number" matInput formControlName="maxNum" >
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Menor a 100</mat-label>
+            <input type="number" matInput formControlName="minNum" >
+        </mat-form-field>
+        <div>
+            <mat-error *ngIf="form0To100.hasError('range')" > un numero se excede</mat-error>
+        </div>
+    </form>
+</body>

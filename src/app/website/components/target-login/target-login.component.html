@@ -7,14 +7,25 @@
         
         <div class="divTarget" [class.divDark]="darkmodes">
             <label for="">Email</label>
-            <input id="email" name="email" required  placeholder="Insert email" type="email"  formControlName="email">
-            <div class="errorDiv" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Email required</div>
+            <mat-form-field>
+
+                <mat-label for="">Insert email</mat-label>
+                <input  matInput  required   type="email"  formControlName="email">
+                <mat-error  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Email required</mat-error>
+                <mat-error  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']">Needs to be email</mat-error>
+            </mat-form-field>
         </div>
         
         <div class="divTarget" [class.divDark]="darkmodes">
-            <label for="">Password</label>
-            <input id="password" name="password" required  placeholder="Insert password" type="text" formControlName="password">
-            <div class="errorDiv" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</div>
+            <label for="">Insert password</label>
+
+            <mat-form-field>
+                
+                <mat-label for="">Password</mat-label>
+                <input  matInput required   type="password" formControlName="password">
+                <mat-error  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</mat-error>
+                <mat-error  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minlength']">Password need more of 4 caracters</mat-error>
+            </mat-form-field>
         </div>
        
         <button (click)="logins()"   class="sendButton">Send</button>

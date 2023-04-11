@@ -5,26 +5,43 @@
     </h1>
     <form  class="formTarget" [formGroup]="registerForm">
         <div  class="divTarget" [class.divDark]="darkmodes">
-            <label for="">Name</label>
-            <input  id="name" name="name" placeholder="Insert name" required  type="text" formControlName="name">
-            <div class="errorDiv" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['minLength']">
-                min 4 caracters
-            </div>
-            <div class="errorDiv" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']">
-                Name required
-            </div>
+            <label for="">Name of the user</label>
+
+            <mat-form-field>
+
+                <mat-label for="">Name</mat-label>
+                <input   matInput placeholder="Insert name" required  type="text" formControlName="name">
+                <mat-error  *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['minlength']">
+                    min 4 caracters
+                </mat-error>
+                <mat-error  *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']">
+                    Name required
+                </mat-error>
+            </mat-form-field>
         </div>
         
         <div class="divTarget" [class.divDark]="darkmodes">
-            <label for="">Email</label>
-            <input id="email" name="email" required  placeholder="Insert email" type="email"  formControlName="email">
-            <div class="errorDiv" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Email required</div>
+            <label for="">Dirección de e-mail </label>
+            <mat-form-field>
+
+                <mat-label for="">Email</mat-label>
+                <input id="email" name="email" required matInput placeholder="Insert email" type="email"  formControlName="email">
+                <mat-error  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">
+                    Email required
+                </mat-error>
+            </mat-form-field>
+
         </div>
         
         <div class="divTarget" [class.divDark]="darkmodes">
             <label for="">Password</label>
-            <input id="password" name="password" required  placeholder="Insert password" type="text" formControlName="password">
-            <div class="errorDiv" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</div>
+            <mat-form-field>
+
+                <mat-label for="">Password</mat-label>
+                <input  matInput name="password" required  placeholder="Insert password" type="text" formControlName="password">
+                <mat-error  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Password required</mat-error>
+                <mat-error  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minLength']">Min 6 caracters</mat-error>
+            </mat-form-field>
         </div>
        
         <button (click)="createUser()"  class="sendButton">Send</button>

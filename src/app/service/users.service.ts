@@ -13,7 +13,7 @@ export class UsersService {
       private httpsC: HttpClient,
       private ApiService: ApiGetService
     ) { }
-    private Api_url = `${this.ApiService.oneProduct}/users`
+    private Api_url = `${this.ApiService.oneProduct}/users/`
 
 
     create(dto: createUserDTO){

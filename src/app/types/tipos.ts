@@ -18,7 +18,7 @@ export interface EditProductDTO extends Partial<ProductDTO> {
 export interface categories {
         id: number,
         name: string,
-        typeImg: string
+        image: string
     
 }
 

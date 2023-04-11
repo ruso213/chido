@@ -29,6 +29,7 @@ import { StoreComponent } from './pages/store/store.component';
 import { SharedModule } from '../shared/shared.module';
 import { CerrarSesionComponent } from './components/cerrar-sesion/cerrar-sesion.component';
 import { NoAccessComponent } from './components/no-access/no-access.component';
+import { MaterialMModule } from '../material-m.module';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { NoAccessComponent } from './components/no-access/no-access.component';
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
-    
+    MaterialMModule
   ]
 })
 export class WebsiteModule { }

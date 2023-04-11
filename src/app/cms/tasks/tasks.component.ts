@@ -8,10 +8,12 @@ import { GenericHTMLFormElement } from 'axios';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
-
+  options = ['elden ring', 'sekiro', 'dark solus' , 'demon souls', 'bloodborne']
   inputPrin = new FormControl
   favorites = []
-  preferenceVideoGames = [
+  
+  formne !: FormGroup;
+  preferenceVideoGames  = [
     {name: 'elden ring' , value : 'elden_ring'},
     {name: 'dark souls 1' , value : 'dark_souls_1'},
     {name: 'dark souls 2' , value : 'dark_souls_2'},
@@ -28,12 +30,8 @@ export class TasksComponent {
     console.log(this.form.value);
     
   }
-
-
-
   optionchanges( valor: Event ){
-    const  {target}  = valor 
-    console.log(target);
+    console.log(valor);
     
   }
 }

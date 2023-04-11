@@ -15,8 +15,8 @@ export class TokenService {
     private ApiService: ApiGetService,
     
   ) { }
-  private Api_url = `${this.ApiService.oneProduct}/users`
-  /*  private profileToken = new BehaviorSubject<string>(``)
+/*   private Api_url = `${this.ApiService.oneProduct}/users`
+ */  /*  private profileToken = new BehaviorSubject<string>(``)
   profileToken$ = this.profileToken.asObservable() */
 
   saveToken(token:string){

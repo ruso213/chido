@@ -44,8 +44,8 @@ export class TargetLoginComponent implements OnInit {
   }
    
   logins(){
-    
     let {email , password} = this.registerForm.value
+    
     if(this.registerForm.valid){
       
       return  this.authService.loginAndGet(email , password).subscribe(item => {

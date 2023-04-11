@@ -14,7 +14,8 @@ export class UserDetailsService{
     name:``,
     id:``,
     email:``,
-    role : ``
+    role : ``,
+    avatar:''
   })
   
   userDetails$= this.userDetails.asObservable()

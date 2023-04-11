@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiGetService } from 'src/app/service/api-get.service';
+import { CategoryService } from 'src/app/service/category.service';
 import { categories } from 'src/app/types/tipos';
 
 @Component({
@@ -9,10 +10,16 @@ import { categories } from 'src/app/types/tipos';
 })
 export class CategoryListComponent implements OnInit{
   constructor(
-    private apiServiced: ApiGetService
+    private apiServiced: CategoryService
   ){  }
-  allCategories : categories[]=[] 
+    allCategories : categories[]=[] 
     ngOnInit(): void {
-      this.apiServiced.getAllCategories().subscribe(item => this.allCategories = item)
+      this.apiServiced.getAllCategories().subscribe(item => {
+        this.allCategories = item
+        console.log(item);
+        
+      })
     }
+
+    
 }

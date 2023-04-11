@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { GridComponent } from './grid/grid.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { CategoryComponent } from './category/category.component';
+import { CheckAllCategoriesComponent } from './check-all-categories/check-all-categories.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,15 @@ const routes: Routes = [
       {
         path: `tasks`,
         component:TasksComponent
-      }
+      },
+      {
+        path: `category`,
+        component:CategoryComponent
+      },
+      {
+        path: `checkCategories`,
+        component:CheckAllCategoriesComponent
+      },
     ]
   }
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, ParamMap } from "@angular/router";
 import { Observable, ObservableInput, pipe, switchMap } from 'rxjs';
 import { ApiGetService } from 'src/app/service/api-get.service';
+import { CategoryService } from 'src/app/service/category.service';
 import { ProductsService } from 'src/app/service/products.service';
 import { Productos } from 'src/app/types/tipos';
 
@@ -13,7 +14,9 @@ import { Productos } from 'src/app/types/tipos';
 export class CategoryComponent implements OnInit{
   constructor(
     private route : ActivatedRoute,
-    private apiGetService : ApiGetService
+    private apiGetService : ApiGetService,
+    private categoryService : CategoryService
+
   ){}
   categoryid : string = ``
   categoryName  = ``
@@ -40,7 +43,7 @@ export class CategoryComponent implements OnInit{
         switchMap((param) => {
             this.categoryid = param.get(`id`)!
             if(this.categoryid){
-              return this.apiGetService.getAllProductCategory(this.categoryid , this.limit, this.offset);
+              return this.categoryService.getAllProductCategory(this.categoryid , this.limit, this.offset);
             }
             return [];
           }
@@ -55,7 +58,7 @@ export class CategoryComponent implements OnInit{
   }
   loadMore(){
     this.offset += this.limit
-    this.apiGetService.getAllProductCategory(this.categoryid ,this.limit, this.offset).subscribe(data=> this.productsArr= this.productsArr.concat(data) )
+    this.categoryService.getAllProductCategory(this.categoryid ,this.limit, this.offset).subscribe(data=> this.productsArr= this.productsArr.concat(data) )
   }
 
   viewDetails(produ: string){

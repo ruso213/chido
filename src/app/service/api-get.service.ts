@@ -15,8 +15,8 @@ export class ApiGetService {
     private Api_Http : HttpClient
   ) { }
   
-  api_limit = 'https://damp-spire-59848.herokuapp.com/api/products?'
-  oneProduct = `https://damp-spire-59848.herokuapp.com/api`
+  api_limit = ' https://api.escuelajs.co/api/v1/products?'
+  oneProduct = ` https://api.escuelajs.co/api/v1`
  
   getProductId(id:string){
     console.log(`hola mundo`);
@@ -51,12 +51,5 @@ export class ApiGetService {
       params : {limit , offset}
     }).pipe(retry(3))
   }
-  getAllProductCategory(id: string , limit : number , offset: number){
-    return this.Api_Http.get<Productos[]>(`${this.oneProduct}/categories/${id}/products`, {
-      params: {limit , offset}
-    })
-  }
-  getAllCategories(){
-    return this.Api_Http.get<categories[]>(`${this.oneProduct}/categories`)
-  }
+ 
 }

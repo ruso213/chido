@@ -1,0 +1,50 @@
+.categoryForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .formCard{
+        padding: 30px 20px;
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .CategoryCreate{
+            display: flex;
+            flex-direction: column;
+            padding: 20px 50px;
+            justify-content: center;
+            align-items: center;
+            .inputpadre{
+                width: 300px;
+            }
+            .error{
+                animation-name: errors;
+                animation-duration: .4s;
+            }
+            .subirimg{
+                background: transparent;
+                border: none;
+            }
+    }
+        .bttn{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 0px;
+
+            
+        }
+    }
+}
+
+@keyframes errors {
+    0%{
+        height: 0%;
+        clip-path: inset(0 0 100% 0);
+    }
+    100%{
+        height: 100%;
+        clip-path: inset(0 0 0 0);    
+    }
+}

@@ -7,6 +7,7 @@ import { SwiperModule } from "swiper/angular";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SwiperModule
+    SwiperModule,
+    BrowserAnimationsModule,
+    
     
   ],
   providers: [
