@@ -19,16 +19,20 @@ export class ItemsInCartDetailComponent implements OnInit {
   ){
   }
   producto : Productos= {
-    title: `Item`,
-    images:[`../../../assets/d4a14705-6284-418c-a1f3-1ba753a0d28e.jpg`],
-    category:{
+    title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
+      },
       id: 0,
-      name: ``,
-      typeImg: ``
-    },    
-    id : '-1',
-    price: 0,
-    description:`IDK`
+      creationAt: '',
+      updatedAt: '',
 
   }  
   imagNum = 0

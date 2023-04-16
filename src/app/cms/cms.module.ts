@@ -9,6 +9,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialMModule } from '../material-m.module';
 import { CategoryComponent } from './category/category.component';
 import { CheckAllCategoriesComponent } from './check-all-categories/check-all-categories.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 
 @NgModule({
@@ -17,13 +23,18 @@ import { CheckAllCategoriesComponent } from './check-all-categories/check-all-ca
     GridComponent,
     TasksComponent,
     CategoryComponent,
-    CheckAllCategoriesComponent
+    CheckAllCategoriesComponent,
+    EditCategoryComponent,
+    CreateProductComponent
   ],
   imports: [
     CommonModule,
     CmsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     MaterialMModule
   ]
 })

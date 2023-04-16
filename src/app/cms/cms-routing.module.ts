@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { CategoryComponent } from './category/category.component';
 import { CheckAllCategoriesComponent } from './check-all-categories/check-all-categories.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         path: `checkCategories`,
         component:CheckAllCategoriesComponent
       },
+      {
+        path : 'editCategory/:id',
+        component: CategoryComponent
+      }
     ]
   }
 ];

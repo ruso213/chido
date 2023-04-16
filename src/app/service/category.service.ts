@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Productos, categories } from '../types/tipos';
 import { ApiGetService } from './api-get.service';
-import { catchError, retry } from 'rxjs';
+import { BehaviorSubject, catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,14 @@ export class CategoryService {
 
   constructor(
     private Api_Http : ApiGetService,
-    private httpc: HttpClient
+    private httpc: HttpClient,
 
   ) { }
-  
+  Category :categories={
+    name: '',
+    id : 0,
+    image:''
+  } 
   getAllProductCategory(id: string , limit : number , offset: number){
     return this.httpc.get<Productos[]>(`${this.Api_Http.oneProduct}/categories/${id}/products`, {
       params: {limit , offset}
@@ -32,8 +36,10 @@ export class CategoryService {
     )
   }
 
-  putCategory(){
-
+  putCategory(id : number, name : string){
+    return this.httpc.put(`${this.Api_Http.oneProduct}/categories/${id}`,{
+      'name': name
+    })
   }
 
   deleteCategory(id : number){

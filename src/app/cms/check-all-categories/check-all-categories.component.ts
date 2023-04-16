@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
 import { categories } from 'src/app/types/tipos';
 
@@ -9,7 +10,8 @@ import { categories } from 'src/app/types/tipos';
 })
 export class CheckAllCategoriesComponent implements OnInit {
   constructor(
-    private categorieServive : CategoryService
+    private categorieServive : CategoryService,
+    private router : Router,
   ){}
   ngOnInit(): void {
     this.categorieServive.getAllCategories().subscribe(items =>{
@@ -17,9 +19,9 @@ export class CheckAllCategoriesComponent implements OnInit {
       console.log(this.categories);
       
     })
-  
-    
   }
+  categories : categories[]= [] 
+  
   deletecategory(id: number){
     this.categorieServive.deleteCategory(id).subscribe(item =>{
       console.log(item);
@@ -29,5 +31,8 @@ export class CheckAllCategoriesComponent implements OnInit {
       
     })
   }
-  categories : categories[]= [] 
+  editarCategoria(category : categories){
+    this.categorieServive.Category = category
+    this.router.navigate([`cms/editCategory/${category.id}`])
+  }
 }

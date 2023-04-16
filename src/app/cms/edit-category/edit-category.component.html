@@ -1,0 +1,18 @@
+<body class="categoryForm">
+    <form  [formGroup]="formEditCategory" (ngSubmit)="EditCategory()">
+        <mat-card class="formCard">
+            <h4>Estas editando la categoria de {{categoryToUpdate.name}} su id es {{categoryToUpdate.id}}</h4>
+            <img [src]="categoryToUpdate.image" height="100px" alt="">
+            <mat-card-content class="CategoryCreate">
+                <mat-form-field class="inputpadre">
+                    <mat-label>Nuevo nombre de la categoria</mat-label>
+                    <input formControlName="name" type="text" matInput>
+                </mat-form-field>            
+                <mat-error class='error'*ngIf="formEditCategory.get('name')?.errors?.['minlength'] && formEditCategory.get('name')?.touched">Minimo 4 caracteres</mat-error>
+            </mat-card-content>
+            <mat-card-actions class="bttn">
+                <button mat-raised-button  >Crear nueva categoria</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</body>

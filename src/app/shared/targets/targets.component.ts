@@ -26,28 +26,36 @@ export class TargetsComponent implements OnInit{
     @Input() a= ``
     @Input() tglcars= false
     @Input() product: Productos ={
-      id:``,
-      title: ``,
-      price: 0,
-      category:{
-        id: 0,
-        name: ``,
-        typeImg: ``
+      title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
       },
-      images:[],
-      description:``
+      id: 0,
+      creationAt: '',
+      updatedAt: '',
     }
     productSearch : Productos ={
-      id:``,
-      title: ``,
-      price: 0,
-      category:{
-        id: 0,
-        name: ``,
-        typeImg: ``
+      title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
       },
-      images:[],
-      description:``
+      id: 0,
+      creationAt: '',
+      updatedAt: '',
     }
    /*  ngOnInit(){
       this.root= `details/${this.root}`

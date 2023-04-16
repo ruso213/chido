@@ -33,16 +33,20 @@ export class StoreComponent {
     title = ``
     productos :Productos[]=[] 
     productSearch : Productos ={
-      id:``,
-      title: ``,
-      price: 0,
-      category:{
-        id: 0,
-        name: ``,
-        typeImg: ``
+      title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
       },
-      images:[],
-      description:``
+      id: 0,
+      creationAt:'',
+      updatedAt:''
     }
     changetrueSettings(){
       this.trueSettings = !this.trueSettings
@@ -55,7 +59,8 @@ export class StoreComponent {
         categoryId : 2,
         description: `besto produyct in the world`,
         price: 2000,
-        images: [``]
+        images: [``],
+        
       }
       this.apiGet.createProduct(produ).subscribe(item => this.productos.unshift(item))
     }

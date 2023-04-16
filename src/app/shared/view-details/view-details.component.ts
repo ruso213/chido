@@ -17,16 +17,20 @@ export class ViewDetailsComponent {
   ){}
   @Output() addProducts = new EventEmitter<Productos>()
   @Input() productDetailsadd : Productos ={
-    id:`a`,
-    title: `a`,
-    price: 0,
-    category:{
+    title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
+      },
       id: 0,
-      name: ``,
-      typeImg: ``
-    },
-    images:[],
-    description:`a`
+      creationAt: '',
+      updatedAt: '',
   }
   @Input()trueDetails = false
   darkModeChange =false
@@ -44,7 +48,7 @@ export class ViewDetailsComponent {
     const changes = {
       title : `my product cool`
     }
-    this.Api_http.editProduct(id , changes).subscribe(item => console.log(item
+    this.Api_http.editProduct(id, changes).subscribe(item => console.log(item
     ))
   }
 }

@@ -43,7 +43,7 @@ export class ApiGetService {
   createProduct(data : ProductDTO){
     return this.Api_Http.post<Productos>(this.api_limit, data )
   }
-  editProduct(id : string ,data : EditProductDTO){
+  editProduct(id : number ,data : EditProductDTO){
     return this.Api_Http.put<Productos>(`${this.oneProduct}/products/${id}`, data )
   }
   getAllProductsOfPage(limit : number , offset: number){

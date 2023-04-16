@@ -24,16 +24,20 @@ export class CategoryComponent implements OnInit{
   limit = 9
   offset = 0
   productSearch: Productos = {
-    id:`a`,
-    title: `a`,
-    price: 0,
-    category:{
+    title: '',
+      price:0,
+      description:'',
+      images:[''],
+      category: {
+        id:0,
+        name: '',
+        image: '',
+        creationAt:'' ,
+        updatedAt: '',
+      },
       id: 0,
-      name: ``,
-      typeImg: ``
-    },
-    images:[],
-    description:`a`
+      creationAt: '',
+      updatedAt: '',
   }
   trueDetails = false
   tglcar = false

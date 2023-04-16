@@ -12,7 +12,7 @@
         <mat-card *ngFor="let items of categories" class="matcard">
             <mat-card-content class="cardCategorie">
             <div  class="buttonsActs">
-                <button mat-raised-button>Editar</button>
+                <button mat-raised-button (click)="editarCategoria(items)">Editar</button>
                 <button mat-raised-button color="warn" (click)="deletecategory(items.id)">borrar</button>
             </div>
             <div class="content" class="imageContainer">
