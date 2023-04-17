@@ -6,6 +6,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { CategoryComponent } from './category/category.component';
 import { CheckAllCategoriesComponent } from './check-all-categories/check-all-categories.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path : 'editCategory/:id',
         component: CategoryComponent
+      },
+      {
+        path : 'product',
+        component: CreateProductComponent
       }
     ]
   }

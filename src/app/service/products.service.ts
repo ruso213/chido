@@ -9,7 +9,7 @@ import { ApiGetService } from './api-get.service';
 export class ProductsService  {
     private mycart = new BehaviorSubject<Productos[]>([]) 
     mycart$ = this.mycart.asObservable()
-
+    
     load(){
       const a = JSON.parse(localStorage.getItem(`shoppingCart`)|| `[]`)
       this.mycart.next(a)

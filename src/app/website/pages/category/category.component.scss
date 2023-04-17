@@ -1,7 +1,7 @@
 .targets{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    justify-items: stretch;
     gap: 20px;
     padding: 20px;
     margin: 0 50px 50px 50px;

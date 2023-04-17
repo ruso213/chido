@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { SmartCreateProductComponent } from './smart-create-product/smart-create-product.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
     CategoryComponent,
     CheckAllCategoriesComponent,
     EditCategoryComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    SmartCreateProductComponent
   ],
   imports: [
     CommonModule,

@@ -1,13 +1,27 @@
 <body>
-    <form action="" [formGroup]="formProduct">
+    <form (submit)="ceateProduct()" [formGroup]="formProduct">
     
-        <mat-card>
+        <mat-card class="">
             <mat-card-content>
-                <h3>Crear categoria</h3>
+                <h3>Crear producto</h3>
                 <mat-form-field>
-                    <label for=""></label>
-                    <input type="text" matInput name="" id="">
+                    <mat-label for="">title</mat-label>
+                    <input type="text" matInput formControlName="title">
                 </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="">description</mat-label>
+                    <input type="text" matInput formControlName="description">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="">price</mat-label>
+                    <input type="number"  matInput formControlName="price">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="">categoryId</mat-label>
+                    <input type="number" matInput formControlName="categoryId">
+                </mat-form-field>
+                    <img *ngIf="imageField?.value" [src]="imageField?.value" height="70px" alt="">
+                    <input type="file" (change)="subirIMG($event)" > 
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button  >Crear nuevo producto</button>

@@ -112,9 +112,7 @@ export class CategoryComponent implements OnInit{
         name : ['', [Validators.required, Validators.minLength(4)]]
       })
     }
-    get formImg(){
-      return this.formCreateCategory.get('image')
-    }
+    
     get imageField(){
       return this.formCreateCategory.get('image')
     }
