@@ -7,6 +7,7 @@ import { CategoryComponent } from './category/category.component';
 import { CheckAllCategoriesComponent } from './check-all-categories/check-all-categories.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { SmartCreateProductComponent } from './smart-create-product/smart-create-product.component';
 
 const routes: Routes = [
   {
@@ -40,7 +41,7 @@ const routes: Routes = [
       },
       {
         path : 'product',
-        component: CreateProductComponent
+        component:SmartCreateProductComponent
       }
     ]
   }

@@ -53,4 +53,31 @@
             <mat-error *ngIf="form0To100.hasError('range')" > un numero se excede</mat-error>
         </div>
     </form>
+    <h2>Form reactivo para crear campos automatomaticos con una funcion</h2>
+
+    
+    <button mat-raised-button (click)="createNewFormArray()" color="accent">address</button>
+    <form [formGroup]="formCreateAut" (submit)="submitAddress()">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input formControlName="name" matInput type="text">
+        </mat-form-field>
+        <div formArrayName="address" *ngFor="let address of formAut.controls; let i = index;">
+            <div [formGroupName]="i">
+                <mat-form-field>
+                    <mat-label>zip code {{i}}</mat-label>
+                    <input formControlName="zip" matInput type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Text</mat-label>
+                    <input formControlName="text" matInput type="text">
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <app-plus formControlName="number"></app-plus>
+        <button>Submit()</button>
+    </form>
+    <h2>Buscador de Gifs</h2>
+    <app-giphy></app-giphy>
 </body>

@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { SmartCreateProductComponent } from './smart-create-product/smart-create-product.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SmartCreateProductComponent } from './smart-create-product/smart-create
   ],
   imports: [
     CommonModule,
+    SharedModule,
     CmsRoutingModule,
     FormsModule,
     ReactiveFormsModule,

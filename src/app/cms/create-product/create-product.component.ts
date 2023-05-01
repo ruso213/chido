@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { ApiGetService } from 'src/app/service/api-get.service';
 import { ProductsService } from 'src/app/service/products.service';
+import { categories, productCreate } from 'src/app/types/tipos';
 
 @Component({
   selector: 'app-create-product',
@@ -19,21 +20,42 @@ export class CreateProductComponent {
   ){
     this.iniitForm()
   }
+
+  
+
   formProduct !: FormGroup;
+  @Input() set categoriesID(data:categories[] ){
+    if(data){
+      this.categoryID = data
+      console.log(this.categoryID);
+      
+    }
+  } 
+  states= [
+    {pais : 'Mexico', conocido : 'MX'},
+    {pais : 'Peru', conocido : 'PR'},
+    {pais : 'Argentina', conocido : 'ARG'},
+    {pais : 'Colombia', conocido : 'CLM'},
+  ]
+  categoryID : categories[]= []
+  @Output() createProduct = new EventEmitter<productCreate>()
   ceateProduct(){
-    console.log(this.formProduct.value)
-    const product = this.formProduct.value
-    this.apiGetService.createProduct({
-      title: this.formProduct.get('title')?.value,
-      price: this.formProduct.get('price')?.value,
-      description: this.formProduct.get('description')?.value,
-      categoryId: this.formProduct.get('categoryId')?.value,
-      images: [this.formProduct.get('images')?.value],
-
-    }).subscribe(item => console.log(this.formProduct.value)
-    )
+    if(this.formProduct.valid){
+      console.log(this.formProduct.value);
+      
+      this.createProduct.emit({
+        title: this.formProduct.get('title')?.value,
+        price: this.formProduct.get('price')?.value,
+        description: this.formProduct.get('description')?.value,
+        categoryId: this.formProduct.get('categoryId')?.value,
+        images: [this.formProduct.get('images')?.value],
+      })
+    }
+    else{
+      this.formProduct.markAllAsTouched()
+    }
   }
-
+  
 
   private iniitForm(){
     this.formProduct = this.formBuilder.group({
@@ -41,7 +63,8 @@ export class CreateProductComponent {
       price : [, [Validators.required, Validators.min(1)]],
       description : ['', [Validators.required, Validators.minLength(4)]],
       categoryId : [ , [Validators.min(1)]],
-      images : [ '', [Validators.required]]
+      images : [ '', [Validators.required]],
+      state: ['', [Validators.required]]
     })
   }
 

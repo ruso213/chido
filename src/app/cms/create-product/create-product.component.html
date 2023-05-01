@@ -18,7 +18,20 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label for="">categoryId</mat-label>
-                    <input type="number" matInput formControlName="categoryId">
+                    <input type="number" matInput [matAutocomplete]="auto" formControlName="categoryId">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let cateID of categoryID" [value]="cateID.id">
+                          {{cateID.name}}
+                        </mat-option>
+                      </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="">State</mat-label>
+                    <mat-select type="number" matInput  formControlName="state">
+                        <mat-option *ngFor="let state of states" [value]="state">
+                          {{state.pais}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
                     <img *ngIf="imageField?.value" [src]="imageField?.value" height="70px" alt="">
                     <input type="file" (change)="subirIMG($event)" > 

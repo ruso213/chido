@@ -25,7 +25,7 @@ export class CheckAllCategoriesComponent implements OnInit {
   deletecategory(id: number){
     this.categorieServive.deleteCategory(id).subscribe(item =>{
       console.log(item);
-      
+      this.categorieServive.getAllCategories().subscribe(i => this.categories = i)
     }, error =>{
       console.log(error);
       

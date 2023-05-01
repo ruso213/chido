@@ -7,6 +7,9 @@ import { TargetsComponent } from './targets/targets.component';
 import { RouterModule } from '@angular/router';
 import { BttnLoadMoreComponent } from './bttn-load-more/bttn-load-more.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
+import { PlusComponent } from './AngularComponent/plus/plus.component';
+import { GiphyComponent } from './giphy/giphy.component';
+import { MaterialMModule } from '../material-m.module';
 
 
 
@@ -14,7 +17,9 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
   declarations: [
     TargetsComponent,
     BttnLoadMoreComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+    PlusComponent,
+    GiphyComponent
   ],
   imports: [
     CommonModule,
@@ -22,12 +27,15 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MaterialMModule
   ],
   exports:[
     TargetsComponent,
     BttnLoadMoreComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+    PlusComponent,
+    GiphyComponent
   ]
 })
 export class SharedModule { }
